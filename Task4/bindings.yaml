@@ -1,0 +1,77 @@
+# Привязки для администраторов
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: product-owner-binding
+subjects:
+- kind: User
+  name: product-owner
+roleRef:
+  kind: ClusterRole
+  name: cluster-admin
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: security-specialist-binding
+subjects:
+- kind: User
+  name: security-specialist
+roleRef:
+  kind: ClusterRole
+  name: cluster-admin
+  apiGroup: rbac.authorization.k8s.io
+---
+# Привязки для операторов
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: devops-binding
+subjects:
+- kind: User
+  name: devops-user
+roleRef:
+  kind: ClusterRole
+  name: cluster-operator
+  apiGroup: rbac.authorization.k8s.io
+---
+# Привязки для просмотра
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: analyst-binding
+subjects:
+- kind: User
+  name: analyst
+roleRef:
+  kind: ClusterRole
+  name: cluster-viewer
+  apiGroup: rbac.authorization.k8s.io
+---
+# Привязки для разработчиков
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: dev-binding
+  namespace: dev
+subjects:
+- kind: User
+  name: developer
+roleRef:
+  kind: Role
+  name: namespace-developer
+  apiGroup: rbac.authorization.k8s.io
+---
+# Привязки для управления секретами
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: secret-manager-binding
+subjects:
+- kind: User
+  name: devops-secret
+roleRef:
+  kind: ClusterRole
+  name: secret-manager
+  apiGroup: rbac.authorization.k8s.io

@@ -1,0 +1,40 @@
+# Владелец продукта
+apiVersion: v1
+kind: User
+metadata:
+  name: product-owner
+---
+
+# Специалист по информационной безопасности
+apiVersion: v1
+kind: User
+metadata:
+  name: security-specialist
+---
+
+# DevOps-инженер
+apiVersion: v1
+kind: User
+metadata:
+  name: devops-user
+---
+
+# Бизнес-аналитик
+apiVersion: v1
+kind: User
+metadata:
+  name: analyst
+---
+
+# Разработчик
+apiVersion: v1
+kind: User
+metadata:
+  name: developer
+---
+
+# DevOps для работы с секретами
+apiVersion: v1
+kind: User
+metadata:
+  name: devops-secret
